@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Join Buildables Fellowship Program">
+    <title>Fellowships - Buildables</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <!-- Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Header Section -->
+    <header>
+        <div class="container">
+            <div class="logo">
+                <a href="index.html">
+                    <h1>Buildables</h1>
+                </a>
+            </div>
+            <nav>
+                <ul class="nav-menu">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="about.html">About Us</a></li>
+                    <li><a href="events.html">Events</a></li>
+                    <li class="dropdown">
+                        <a href="#" class="active">Programs <i class="fas fa-chevron-down"></i></a>
+                        <ul class="dropdown-menu">
+                            <li><a href="hackathons.html">Hackathons</a></li>
+                            <li><a href="fellowships.html">Fellowships</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="community.html">Community</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+                <div class="hamburger">
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Fellowship Hero Section -->
+    <section class="fellowship-hero">
+        <div class="container">
+            <div class="section-header">
+                <h2>Buildables Fellowship Program</h2>
+                <p>Join our intensive mentorship program and kickstart your tech career</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Fellowship Tracks Section -->
+    <section class="fellowship-tracks">
+        <div class="container">
+            <h3>Available Tracks</h3>
+            <div class="tracks-grid">
+                <div class="track-card">
+                    <div class="track-icon">
+                        <i class="fas fa-code"></i>
+                    </div>
+                    <h4>Full Stack Development</h4>
+                    <p>Master modern web development with React, Node.js, and cloud technologies.</p>
+                    <ul class="track-details">
+                        <li><i class="fas fa-clock"></i> 6 months</li>
+                        <li><i class="fas fa-users"></i> 25 seats</li>
+                        <li><i class="fas fa-laptop-code"></i> Hands-on Projects</li>
+                    </ul>
+                </div>
+                <div class="track-card">
+                    <div class="track-icon">
+                        <i class="fas fa-robot"></i>
+                    </div>
+                    <h4>AI & Machine Learning</h4>
+                    <p>Deep dive into AI/ML with Python, TensorFlow, and real-world applications.</p>
+                    <ul class="track-details">
+                        <li><i class="fas fa-clock"></i> 6 months</li>
+                        <li><i class="fas fa-users"></i> 20 seats</li>
+                        <li><i class="fas fa-brain"></i> Research Focus</li>
+                    </ul>
+                </div>
+                <div class="track-card">
+                    <div class="track-icon">
+                        <i class="fas fa-mobile-alt"></i>
+                    </div>
+                    <h4>Mobile App Development</h4>
+                    <p>Build cross-platform mobile apps using React Native and Flutter.</p>
+                    <ul class="track-details">
+                        <li><i class="fas fa-clock"></i> 6 months</li>
+                        <li><i class="fas fa-users"></i> 25 seats</li>
+                        <li><i class="fas fa-mobile"></i> App Store Publishing</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Fellowship Benefits -->
+    <section class="fellowship-benefits">
+        <div class="container">
+            <h3>Why Join Our Fellowship?</h3>
+            <div class="benefits-grid">
+                <div class="benefit-item">
+                    <i class="fas fa-user-graduate"></i>
+                    <h4>Expert Mentorship</h4>
+                    <p>Learn from industry professionals with years of experience.</p>
+                </div>
+                <div class="benefit-item">
+                    <i class="fas fa-laptop-code"></i>
+                    <h4>Real Projects</h4>
+                    <p>Work on real-world projects with actual clients.</p>
+                </div>
+                <div class="benefit-item">
+                    <i class="fas fa-certificate"></i>
+                    <h4>Certification</h4>
+                    <p>Receive industry-recognized certification upon completion.</p>
+                </div>
+                <div class="benefit-item">
+                    <i class="fas fa-briefcase"></i>
+                    <h4>Job Placement</h4>
+                    <p>Get connected with our network of hiring partners.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Application Form Section -->
+    <section class="fellowship-application">
+        <div class="container">
+            <div class="section-header">
+                <h3>Apply Now</h3>
+                <p>Take the first step towards your tech career</p>
+            </div>
+            <form id="fellowshipForm" class="application-form">
+                <div class="form-grid">
+                    <div class="form-group">
+                        <label for="fullName">Full Name *</label>
+                        <input type="text" id="fullName" name="fullName" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Email Address *</label>
+                        <input type="email" id="email" name="email" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="phone">Phone Number *</label>
+                        <input type="tel" id="phone" name="phone" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="track">Preferred Track *</label>
+                        <select id="track" name="track" required>
+                            <option value="">Select a track</option>
+                            <option value="fullstack">Full Stack Development</option>
+                            <option value="ai-ml">AI & Machine Learning</option>
+                            <option value="mobile">Mobile App Development</option>
+                        </select>
+                    </div>
+                    <div class="form-group full-width">
+                        <label for="education">Educational Background *</label>
+                        <input type="text" id="education" name="education" required>
+                    </div>
+                    <div class="form-group full-width">
+                        <label for="experience">Previous Experience</label>
+                        <textarea id="experience" name="experience" rows="3"></textarea>
+                    </div>
+                    <div class="form-group full-width">
+                        <label for="motivation">Why do you want to join this fellowship? *</label>
+                        <textarea id="motivation" name="motivation" rows="4" required></textarea>
+                    </div>
+                    <div class="form-group full-width">
+                        <label for="portfolio">Portfolio/GitHub Link</label>
+                        <input type="url" id="portfolio" name="portfolio">
+                    </div>
+                </div>
+                <div class="form-footer">
+                    <button type="submit" class="btn btn-primary">Submit Application</button>
+                </div>
+            </form>
+        </div>
+    </section>
+
+    <!-- Footer Section -->
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-about">
+                    <h3>Buildables</h3>
+                    <p>Empowering the next generation of innovators through community, education, and hands-on experience.</p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                    </div>
+                </div>
+                <div class="footer-links">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="about.html">About Us</a></li>
+                        <li><a href="events.html">Events</a></li>
+                        <li><a href="hackathons.html">Hackathons</a></li>
+                        <li><a href="fellowships.html">Fellowships</a></li>
+                        <li><a href="community.html">Community</a></li>
+                    </ul>
+                </div>
+                <div class="footer-contact">
+                    <h4>Contact Us</h4>
+                    <ul>
+                        <li><i class="fas fa-map-marker-alt"></i> Islamabad, Pakistan</li>
+                        <li><i class="fas fa-phone"></i> +92 XXX XXXXXXX</li>
+                        <li><i class="fas fa-envelope"></i> contact@buildables.pk</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 Buildables. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- JavaScript -->
+    <script src="js/main.js"></script>
+</body>
+</html> 
