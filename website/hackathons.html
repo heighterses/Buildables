@@ -1,0 +1,517 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Hackathon events and opportunities for developers and innovators">
+    <title>Hackathons - Community Hub</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <!-- Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Header Section -->
+    <header>
+        <div class="container">
+            <div class="logo">
+                <a href="index.html">
+                    <h1>Community<span>Hub</span></h1>
+                </a>
+            </div>
+            <nav>
+                <ul class="nav-menu">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="about.html">About Us</a></li>
+                    <li><a href="events.html">Events</a></li>
+                    <li class="dropdown">
+                        <a href="#" class="active">Programs <i class="fas fa-chevron-down"></i></a>
+                        <ul class="dropdown-menu">
+                            <li><a href="hackathons.html" class="active">Hackathons</a></li>
+                            <li><a href="fellowships.html">Fellowships</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="community.html">Community</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+                <div class="hamburger">
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Page Banner -->
+    <section class="page-banner">
+        <div class="container">
+            <h1>Hackathons</h1>
+            <nav aria-label="breadcrumb">
+                <ol class="breadcrumb">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="#">Programs</a></li>
+                    <li class="active">Hackathons</li>
+                </ol>
+            </nav>
+        </div>
+    </section>
+
+    <!-- Hackathon Intro Section -->
+    <section class="hackathon-intro">
+        <div class="container">
+            <div class="intro-grid">
+                <div class="intro-content">
+                    <h2>Innovate, Collaborate, Create</h2>
+                    <p class="lead">Our hackathons bring together developers, designers, and innovators to solve real-world challenges through technology.</p>
+                    <p>Whether you're a seasoned developer or just starting your coding journey, our hackathons provide a supportive environment to learn, collaborate, and build impactful solutions. Join a community of like-minded individuals passionate about using technology for positive change.</p>
+                    <div class="intro-stats">
+                        <div class="stat-item">
+                            <span class="stat-number">20+</span>
+                            <span class="stat-label">Hackathons Hosted</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-number">1,500+</span>
+                            <span class="stat-label">Participants</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-number">200+</span>
+                            <span class="stat-label">Projects Created</span>
+                        </div>
+                    </div>
+                    <a href="#upcoming" class="btn btn-primary">Upcoming Hackathons</a>
+                </div>
+                <div class="intro-image">
+                    <img src="images/hackathon-hero.jpg" alt="Participants collaborating at a hackathon">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- How It Works Section -->
+    <section class="how-it-works">
+        <div class="container">
+            <div class="section-header">
+                <h2>How Our Hackathons Work</h2>
+                <p>From registration to demo day, here's what to expect</p>
+            </div>
+            <div class="steps-container">
+                <div class="step">
+                    <div class="step-icon">
+                        <i class="fas fa-user-plus"></i>
+                        <span class="step-number">1</span>
+                    </div>
+                    <h3>Register</h3>
+                    <p>Sign up individually or as a team through our online registration portal. No registration fee required.</p>
+                </div>
+                <div class="step">
+                    <div class="step-icon">
+                        <i class="fas fa-users"></i>
+                        <span class="step-number">2</span>
+                    </div>
+                    <h3>Form Teams</h3>
+                    <p>Join existing teams or form new ones at our team formation events. Teams typically consist of 3-5 members.</p>
+                </div>
+                <div class="step">
+                    <div class="step-icon">
+                        <i class="fas fa-lightbulb"></i>
+                        <span class="step-number">3</span>
+                    </div>
+                    <h3>Ideate</h3>
+                    <p>Brainstorm solutions to the hackathon challenge. Mentors are available to help refine your ideas.</p>
+                </div>
+                <div class="step">
+                    <div class="step-icon">
+                        <i class="fas fa-laptop-code"></i>
+                        <span class="step-number">4</span>
+                    </div>
+                    <h3>Build</h3>
+                    <p>Develop your solution during the hackathon period, which typically ranges from 24 to 48 hours.</p>
+                </div>
+                <div class="step">
+                    <div class="step-icon">
+                        <i class="fas fa-presentation"></i>
+                        <span class="step-number">5</span>
+                    </div>
+                    <h3>Present</h3>
+                    <p>Showcase your project to judges and fellow participants in a 5-minute presentation.</p>
+                </div>
+                <div class="step">
+                    <div class="step-icon">
+                        <i class="fas fa-award"></i>
+                        <span class="step-number">6</span>
+                    </div>
+                    <h3>Win Prizes</h3>
+                    <p>Top projects receive recognition, prizes, and opportunities for further development support.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Upcoming Hackathons Section -->
+    <section class="upcoming-hackathons" id="upcoming">
+        <div class="container">
+            <div class="section-header">
+                <h2>Upcoming Hackathons</h2>
+                <p>Mark your calendar for these exciting opportunities</p>
+            </div>
+            <div class="hackathon-cards">
+                <div class="hackathon-card">
+                    <div class="hackathon-banner">
+                        <img src="images/summer-hackathon.jpg" alt="Summer Hackathon 2025">
+                        <div class="hackathon-date">
+                            <span class="month">Jun</span>
+                            <span class="day">15-17</span>
+                            <span class="year">2025</span>
+                        </div>
+                    </div>
+                    <div class="hackathon-content">
+                        <div class="hackathon-tags">
+                            <span class="tag">Virtual</span>
+                            <span class="tag">Sustainability</span>
+                        </div>
+                        <h3>Summer Hackathon 2025</h3>
+                        <p>A 48-hour virtual hackathon focused on developing innovative solutions for environmental sustainability challenges.</p>
+                        <div class="hackathon-details">
+                            <div class="detail-item">
+                                <i class="fas fa-users"></i>
+                                <span>Expected Participants: 200+</span>
+                            </div>
+                            <div class="detail-item">
+                                <i class="fas fa-trophy"></i>
+                                <span>Prizes Worth: $5,000</span>
+                            </div>
+                            <div class="detail-item">
+                                <i class="fas fa-clock"></i>
+                                <span>Duration: 48 Hours</span>
+                            </div>
+                        </div>
+                        <div class="hackathon-actions">
+                            <a href="#" class="btn btn-primary">Register Now</a>
+                            <a href="#" class="btn-text">Learn More</a>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="hackathon-card">
+                    <div class="hackathon-banner">
+                        <img src="images/health-hackathon.jpg" alt="HealthTech Hackathon">
+                        <div class="hackathon-date">
+                            <span class="month">Aug</span>
+                            <span class="day">5-7</span>
+                            <span class="year">2025</span>
+                        </div>
+                    </div>
+                    <div class="hackathon-content">
+                        <div class="hackathon-tags">
+                            <span class="tag">Hybrid</span>
+                            <span class="tag">Healthcare</span>
+                        </div>
+                        <h3>HealthTech Hackathon</h3>
+                        <p>Develop innovative solutions to address healthcare challenges and improve patient outcomes through technology.</p>
+                        <div class="hackathon-details">
+                            <div class="detail-item">
+                                <i class="fas fa-users"></i>
+                                <span>Expected Participants: 150+</span>
+                            </div>
+                            <div class="detail-item">
+                                <i class="fas fa-trophy"></i>
+                                <span>Prizes Worth: $4,000</span>
+                            </div>
+                            <div class="detail-item">
+                                <i class="fas fa-clock"></i>
+                                <span>Duration: 36 Hours</span>
+                            </div>
+                        </div>
+                        <div class="hackathon-actions">
+                            <a href="#" class="btn btn-outline">Coming Soon</a>
+                            <a href="#" class="btn-text">Get Notified</a>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="hackathon-card">
+                    <div class="hackathon-banner">
+                        <img src="images/ai-hackathon.jpg" alt="AI Innovation Challenge">
+                        <div class="hackathon-date">
+                            <span class="month">Oct</span>
+                            <span class="day">20-22</span>
+                            <span class="year">2025</span>
+                        </div>
+                    </div>
+                    <div class="hackathon-content">
+                        <div class="hackathon-tags">
+                            <span class="tag">In-Person</span>
+                            <span class="tag">AI/ML</span>
+                        </div>
+                        <h3>AI Innovation Challenge</h3>
+                        <p>Explore the frontiers of artificial intelligence and machine learning to solve complex real-world problems.</p>
+                        <div class="hackathon-details">
+                            <div class="detail-item">
+                                <i class="fas fa-users"></i>
+                                <span>Expected Participants: 100+</span>
+                            </div>
+                            <div class="detail-item">
+                                <i class="fas fa-trophy"></i>
+                                <span>Prizes Worth: $6,000</span>
+                            </div>
+                            <div class="detail-item">
+                                <i class="fas fa-clock"></i>
+                                <span>Duration: 48 Hours</span>
+                            </div>
+                        </div>
+                        <div class="hackathon-actions">
+                            <a href="#" class="btn btn-outline">Coming Soon</a>
+                            <a href="#" class="btn-text">Get Notified</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Past Hackathons Section -->
+    <section class="past-hackathons">
+        <div class="container">
+            <div class="section-header">
+                <h2>Past Hackathons</h2>
+                <p>Explore the innovative projects from our previous events</p>
+            </div>
+            <div class="past-hackathon-grid">
+                <div class="past-hackathon">
+                    <div class="past-hackathon-image">
+                        <img src="images/past-hackathon-1.jpg" alt="Spring Code Challenge 2025">
+                    </div>
+                    <div class="past-hackathon-content">
+                        <h3>Spring Code Challenge 2025</h3>
+                        <p>Our annual spring hackathon focused on developing solutions for smart cities and urban sustainability.</p>
+                        <div class="past-hackathon-stats">
+                            <div class="stat">
+                                <span class="stat-value">180</span>
+                                <span class="stat-label">Participants</span>
+                            </div>
+                            <div class="stat">
+                                <span class="stat-value">32</span>
+                                <span class="stat-label">Projects</span>
+                            </div>
+                        </div>
+                        <div class="winning-projects">
+                            <h4>Winning Projects:</h4>
+                            <ul>
+                                <li><strong>EcoRoute</strong> - Smart transportation planning app</li>
+                                <li><strong>WasteWise</strong> - AI-powered recycling assistant</li>
+                                <li><strong>UrbanGreen</strong> - Community garden management platform</li>
+                            </ul>
+                        </div>
+                        <div class="past-hackathon-actions">
+                            <a href="#" class="btn btn-outline">View Projects</a>
+                            <a href="#" class="btn-text">View Photos</a>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="past-hackathon">
+                    <div class="past-hackathon-image">
+                        <img src="images/past-hackathon-2.jpg" alt="EdTech Hackathon 2024">
+                    </div>
+                    <div class="past-hackathon-content">
+                        <h3>EdTech Hackathon 2024</h3>
+                        <p>A hackathon dedicated to revolutionizing education through innovative technology solutions.</p>
+                        <div class="past-hackathon-stats">
+                            <div class="stat">
+                                <span class="stat-value">150</span>
+                                <span class="stat-label">Participants</span>
+                            </div>
+                            <div class="stat">
+                                <span class="stat-value">28</span>
+                                <span class="stat-label">Projects</span>
+                            </div>
+                        </div>
+                        <div class="winning-projects">
+                            <h4>Winning Projects:</h4>
+                            <ul>
+                                <li><strong>LearnLoop</strong> - Personalized learning path generator</li>
+                                <li><strong>StudyBuddy</strong> - Collaborative study platform</li>
+                                <li><strong>ClassConnect</strong> - Virtual classroom enhancement tools</li>
+                            </ul>
+                        </div>
+                        <div class="past-hackathon-actions">
+                            <a href="#" class="btn btn-outline">View Projects</a>
+                            <a href="#" class="btn-text">View Photos</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="view-more-container">
+                <a href="#" class="btn btn-secondary">View All Past Hackathons</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Resources Section -->
+    <section class="resources">
+        <div class="container">
+            <div class="section-header">
+                <h2>Hackathon Resources</h2>
+                <p>Tools and guides to help you prepare for your next hackathon</p>
+            </div>
+            <div class="resources-grid">
+                <div class="resource-card">
+                    <div class="resource-icon">
+                        <i class="fas fa-book"></i>
+                    </div>
+                    <h3>Beginner's Guide</h3>
+                    <p>Everything you need to know about participating in your first hackathon.</p>
+                    <a href="#" class="btn-text">Download Guide <i class="fas fa-download"></i></a>
+                </div>
+                <div class="resource-card">
+                    <div class="resource-icon">
+                        <i class="fas fa-laptop-code"></i>
+                    </div>
+                    <h3>Project Templates</h3>
+                    <p>Starter code and templates to help you hit the ground running.</p>
+                    <a href="#" class="btn-text">Access Templates <i class="fas fa-external-link-alt"></i></a>
+                </div>
+                <div class="resource-card">
+                    <div class="resource-icon">
+                        <i class="fas fa-presentation"></i>
+                    </div>
+                    <h3>Presentation Tips</h3>
+                    <p>How to effectively showcase your project to judges and peers.</p>
+                    <a href="#" class="btn-text">Read Article <i class="fas fa-arrow-right"></i></a>
+                </div>
+                <div class="resource-card">
+                    <div class="resource-icon">
+                        <i class="fas fa-users"></i>
+                    </div>
+                    <h3>Team Formation</h3>
+                    <p>Tips for finding the right teammates and building effective teams.</p>
+                    <a href="#" class="btn-text">Read Article <i class="fas fa-arrow-right"></i></a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section class="faq">
+        <div class="container">
+            <div class="section-header">
+                <h2>Frequently Asked Questions</h2>
+                <p>Common questions about our hackathons</p>
+            </div>
+            <div class="faq-container">
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <h3>Do I need to be an experienced programmer to participate?</h3>
+                        <span class="faq-toggle"><i class="fas fa-plus"></i></span>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Not at all! Our hackathons welcome participants of all skill levels. We encourage beginners to join and learn from the experience. Many teams benefit from diverse skills, including design, project management, and domain expertise.</p>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <h3>Do I need to have a team before registering?</h3>
+                        <span class="faq-toggle"><i class="fas fa-plus"></i></span>
+                    </div>
+                    <div class="faq-answer">
+                        <p>No, you can register individually and form a team during our team formation events. We provide opportunities for participants to connect and form teams based on shared interests and complementary skills.</p>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <h3>What should I bring to a hackathon?</h3>
+                        <span class="faq-toggle"><i class="fas fa-plus"></i></span>
+                    </div>
+                    <div class="faq-answer">
+                        <p>For in-person events, bring your laptop, charger, any specific hardware you might need for your project, and personal items for your comfort. For virtual events, ensure you have a stable internet connection and the necessary software installed.</p>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <h3>Is there a registration fee?</h3>
+                        <span class="faq-toggle"><i class="fas fa-plus"></i></span>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Most of our hackathons are free to participate in, thanks to our sponsors and partners. Any exceptions will be clearly noted in the event details.</p>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <h3>What happens after the hackathon?</h3>
+                        <span class="faq-toggle"><i class="fas fa-plus"></i></span>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Winning teams often receive prizes and opportunities for further development support. All participants are encouraged to continue working on their projects, and we provide resources and connections to help bring promising ideas to fruition.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta">
+        <div class="container">
+            <div class="cta-content">
+                <h2>Ready to Hack?</h2>
+                <p>Join our next hackathon and turn your ideas into reality</p>
+                <a href="#upcoming" class="btn btn-primary">Register Now</a>
+                <a href="contact.html" class="btn btn-secondary">Contact Us</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-about">
+                    <h3>Community<span>Hub</span></h3>
+                    <p>Building a vibrant community of innovators, creators, and changemakers through events, programs, and collaborative opportunities.</p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                    </div>
+                </div>
+                <div class="footer-links">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="about.html">About Us</a></li>
+                        <li><a href="events.html">Events</a></li>
+                        <li><a href="hackathons.html">Hackathons</a></li>
+                        <li><a href="fellowships.html">Fellowships</a></li>
+                    </ul>
+                </div>
+                <div class="footer-links">
+                    <h4>Resources</h4>
+                    <ul>
+                        <li><a href="#">Blog</a></li>
+                        <li><a href="#">FAQ</a></li>
+                        <li><a href="#">Privacy Policy</a></li>
+                        <li><a href="#">Terms of Service</a></li>
+                        <li><a href="contact.html">Contact Us</a></li>
+                    </ul>
+                </div>
+                <div class="footer-contact">
+                    <h4>Contact Info</h4>
+                    <ul>
+                        <li><i class="fas fa-map-marker-alt"></i> 123 Community St, City, Country</li>
+                        <li><i class="fas fa-phone"></i> +1 (555) 123-4567</li>
+                        <li><i class="fas fa-envelope"></i> info@communityhub.org</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 CommunityHub. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- JavaScript -->
+    <script src="js/main.js"></script>
+</body>
+</html>
