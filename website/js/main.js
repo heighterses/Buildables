@@ -284,4 +284,32 @@ document.addEventListener('DOMContentLoaded', function() {
             }
         });
     }
+
+    // FAQ Toggle
+    const faqQuestions = document.querySelectorAll('.faq-question');
+
+    faqQuestions.forEach(question => {
+        question.addEventListener('click', () => {
+            const answer = question.nextElementSibling;
+            const icon = question.querySelector('.faq-toggle i');
+            
+            // Toggle answer visibility
+            answer.style.display = answer.style.display === 'none' ? 'block' : 'none';
+            
+            // Toggle icon
+            icon.classList.toggle('fa-plus');
+            icon.classList.toggle('fa-minus');
+            
+            // Close other answers
+            faqQuestions.forEach(otherQuestion => {
+                if (otherQuestion !== question) {
+                    const otherAnswer = otherQuestion.nextElementSibling;
+                    const otherIcon = otherQuestion.querySelector('.faq-toggle i');
+                    otherAnswer.style.display = 'none';
+                    otherIcon.classList.remove('fa-minus');
+                    otherIcon.classList.add('fa-plus');
+                }
+            });
+        });
+    });
 });
