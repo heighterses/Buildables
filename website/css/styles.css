@@ -2085,6 +2085,10 @@ footer {
     color: white;
     padding: 80px 0 60px;
     text-align: center;
+    position: relative;
+    min-height: 500px;
+    display: flex;
+    align-items: center;
 }
 
 .gradient-hero h2 {
@@ -2095,12 +2099,32 @@ footer {
     color: white;
 }
 
+.gradient-hero h1 {
+    font-size: 3.2rem;
+    font-weight: 700;
+    margin-bottom: 18px;
+    letter-spacing: 1px;
+    color: white;
+}
+
 .gradient-hero p {
     font-size: 1.3rem;
     max-width: 600px;
-    margin: 0 auto;
+    margin: 0 auto 30px auto;
     opacity: 0.95;
     color: white;
+    line-height: 1.6;
+}
+
+.gradient-hero .hero-buttons {
+    display: flex;
+    gap: 15px;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.gradient-hero .hero-buttons .btn {
+    margin: 5px;
 }
 
 .gradient-hero.fellowship-hero { background: var(--gradient-1); }
@@ -2108,6 +2132,134 @@ footer {
 .gradient-hero.events-hero { background: var(--gradient-3); }
 .gradient-hero.about-hero { background: var(--gradient-4); }
 .gradient-hero.community-hero { background: var(--gradient-1); }
+.gradient-hero.hero { background: var(--gradient-1); }
+
+/* Specific overrides for Hackathon hero to match design */
+.gradient-hero.hackathon-hero .hero-content {
+    text-align: left;
+    max-width: 800px;
+    margin-left: 0;
+    margin-right: auto;
+}
+
+.gradient-hero.hackathon-hero h2 {
+    font-size: 4.5rem;
+    line-height: 1.1;
+}
+
+.gradient-hero.hackathon-hero p {
+    margin: 20px 0 30px 0;
+    max-width: 500px;
+}
+
+/* Index.html Hero with Slider */
+.gradient-hero.hero {
+    padding: 0;
+    text-align: center;
+    overflow: hidden;
+    margin-bottom: 4rem; /* Adds whitespace below for better UX */
+}
+
+.gradient-hero.hero .slider-container {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    min-height: 500px;
+}
+
+.gradient-hero.hero .slide {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    transition: opacity 0.5s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.gradient-hero.hero .slide.active {
+    opacity: 1;
+}
+
+.gradient-hero.hero .hero-content {
+    max-width: 800px;
+    padding: 0 20px;
+}
+
+.gradient-hero.hero .hero-content h2 {
+    font-size: 3.5rem;
+    font-weight: 700;
+    margin-bottom: 20px;
+    letter-spacing: 1px;
+    color: white;
+}
+
+.gradient-hero.hero .hero-content p {
+    font-size: 1.4rem;
+    max-width: 600px;
+    margin: 0 auto 30px auto;
+    opacity: 0.95;
+    color: white;
+    line-height: 1.6;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .gradient-hero h2 {
+        font-size: 2.2rem;
+    }
+    
+    .gradient-hero h1 {
+        font-size: 2.5rem;
+    }
+    
+    .gradient-hero p {
+        font-size: 1.1rem;
+    }
+    
+    .gradient-hero.hero .hero-content h2 {
+        font-size: 2.5rem;
+    }
+    
+    .gradient-hero.hero .hero-content p {
+        font-size: 1.2rem;
+    }
+    
+    .gradient-hero .hero-buttons {
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    .gradient-hero .hero-buttons .btn {
+        width: 200px;
+        margin: 5px 0;
+    }
+}
+
+@media (max-width: 480px) {
+    .gradient-hero h2 {
+        font-size: 1.8rem;
+    }
+    
+    .gradient-hero h1 {
+        font-size: 2rem;
+    }
+    
+    .gradient-hero p {
+        font-size: 1rem;
+    }
+    
+    .gradient-hero.hero .hero-content h2 {
+        font-size: 2rem;
+    }
+    
+    .gradient-hero.hero .hero-content p {
+        font-size: 1.1rem;
+    }
+}
 
 /* Slide Animation for main hero */
 .slide {
