@@ -1,3 +1,5 @@
+const API_BASE_URL = 'http://localhost:5000';
+
 document.addEventListener('DOMContentLoaded', function() {
     const fellowshipForm = document.getElementById('fellowshipForm');
     const fileInput = document.getElementById('resume');
@@ -37,7 +39,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 delete data.resume;
                 
                 // Send to Flask backend
-                const response = await fetch('/api/fellowship/apply', {
+                const response = await fetch(`${API_BASE_URL}/api/fellowship/apply`, {
                     method: 'POST',
                     headers: {
                         'Content-Type': 'application/json',

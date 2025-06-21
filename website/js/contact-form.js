@@ -1,3 +1,5 @@
+const API_BASE_URL = 'http://localhost:5000';
+
 document.addEventListener('DOMContentLoaded', function() {
     const contactForm = document.getElementById('contactForm');
 
@@ -24,7 +26,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 }
                 
                 // Send to Flask backend
-                const response = await fetch('/api/contact', {
+                const response = await fetch(`${API_BASE_URL}/api/contact`, {
                     method: 'POST',
                     headers: {
                         'Content-Type': 'application/json',

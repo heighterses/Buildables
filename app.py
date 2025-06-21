@@ -15,7 +15,7 @@ logging.basicConfig(level=logging.INFO)
 logger = logging.getLogger(__name__)
 
 app = Flask(__name__, static_folder='website', template_folder='website')
-CORS(app)
+CORS(app, resources={r"/api/*": {"origins": "*"}})
 
 # Configuration
 app.config['SECRET_KEY'] = os.environ.get('SECRET_KEY', 'your-secret-key-here')
@@ -79,92 +79,64 @@ def send_email(subject, body, to_email, attachment_path=None):
 
 def create_fellowship_email_content(data):
     """
-    Create HTML email content for fellowship application
+    Creates a nice 'Thank You' email with specific application details.
     """
+    full_name = f"{data.get('firstName', '')} {data.get('middleName', '')} {data.get('lastName', '')}".strip()
     track_name = TRACK_MAPPING.get(data.get('fellowshipTrack', ''), 'Not specified')
-    
+    why_join_reason = data.get('whyJoin', 'N/A')
+
     html_content = f"""
     <html>
     <head>
         <style>
-            body {{ font-family: Arial, sans-serif; line-height: 1.6; color: #333; }}
-            .container {{ max-width: 600px; margin: 0 auto; padding: 20px; }}
-            .header {{ background-color: #007bff; color: white; padding: 20px; text-align: center; }}
-            .content {{ padding: 20px; background-color: #f8f9fa; }}
-            .field {{ margin-bottom: 15px; }}
-            .field-label {{ font-weight: bold; color: #007bff; }}
-            .footer {{ text-align: center; padding: 20px; color: #666; font-size: 12px; }}
+            body {{ font-family: 'Poppins', sans-serif; line-height: 1.6; color: #333; background-color: #f4f4f4; margin: 0; padding: 0; }}
+            .container {{ max-width: 600px; margin: 20px auto; padding: 30px; background-color: #ffffff; border-radius: 12px; box-shadow: 0 4px 15px rgba(0,0,0,0.05); }}
+            .header {{ text-align: center; border-bottom: 1px solid #e9ecef; padding-bottom: 20px; margin-bottom: 30px; }}
+            .header h1 {{ font-size: 28px; color: #4e73df; margin: 0; }}
+            .content p {{ font-size: 16px; color: #555; }}
+            .field {{ margin-bottom: 20px; padding: 15px; background-color: #f8f9fc; border-left: 4px solid #4e73df; border-radius: 4px; }}
+            .field-label {{ font-weight: 600; color: #333; display: block; margin-bottom: 5px; }}
+            .field-value {{ color: #555; }}
+            .footer {{ text-align: center; margin-top: 30px; font-size: 12px; color: #999; }}
         </style>
     </head>
     <body>
         <div class="container">
             <div class="header">
-                <h1>🎉 Fellowship Application Received!</h1>
+                <h1>Thank You For Applying!</h1>
             </div>
             <div class="content">
-                <p>Dear <strong>{data.get('firstName', '')} {data.get('lastName', '')}</strong>,</p>
-                
-                <p>Thank you for applying to the Buildables Fellowship Program! We have received your application and are excited to review it.</p>
-                
-                <h3>📋 Application Details:</h3>
-                
+                <p>Dear <strong>{full_name}</strong>,</p>
+                <p>We've successfully received your application for the Buildables Fellowship Program. We're thrilled to see your interest and appreciate you taking the time to apply.</p>
+                <p>Here's a summary of the information you submitted:</p>
+
                 <div class="field">
-                    <span class="field-label">Full Name:</span> {data.get('firstName', '')} {data.get('middleName', '')} {data.get('lastName', '')}
+                    <span class="field-label">Full Name:</span>
+                    <span class="field-value">{full_name}</span>
                 </div>
-                
+
                 <div class="field">
-                    <span class="field-label">Email:</span> {data.get('email', '')}
+                    <span class="field-label">Track Applied For:</span>
+                    <span class="field-value">{track_name}</span>
                 </div>
-                
+
                 <div class="field">
-                    <span class="field-label">Contact Number:</span> {data.get('contactNo', '')}
+                    <span class="field-label">Your reason for wanting to join Buildables:</span>
+                    <blockquote class="field-value" style="margin: 0; padding-left: 10px; border-left: 2px solid #ccc;">
+                        {why_join_reason}
+                    </blockquote>
                 </div>
-                
-                <div class="field">
-                    <span class="field-label">Selected Track:</span> {track_name}
-                </div>
-                
-                <div class="field">
-                    <span class="field-label">Why do you want to join Buildables?</span><br>
-                    {data.get('whyJoin', '')}
-                </div>
-                
-                <div class="field">
-                    <span class="field-label">Why should we choose you?</span><br>
-                    {data.get('whyChoose', '')}
-                </div>
-                
-                <div class="field">
-                    <span class="field-label">What perspective will you bring?</span><br>
-                    {data.get('perspective', '')}
-                </div>
-                
-                <div class="field">
-                    <span class="field-label">Additional Information:</span><br>
-                    {data.get('anythingElse', '')}
-                </div>
-                
-                <p><strong>Next Steps:</strong></p>
-                <ul>
-                    <li>Our team will review your application within 5-7 business days</li>
-                    <li>You will receive an email with the next steps if selected</li>
-                    <li>Keep an eye on your email for updates</li>
-                </ul>
-                
-                <p>If you have any questions, feel free to reach out to us at contact@buildables.pk</p>
-                
-                <p>Best regards,<br>
-                The Buildables Team</p>
+
+                <p>Our team will review your application carefully. You can expect to hear from us within the next two weeks. Stay tuned!</p>
+                <p>Best regards,<br>The Buildables Team</p>
             </div>
             <div class="footer">
-                <p>This is an automated message. Please do not reply to this email.</p>
-                <p>&copy; 2024 Buildables. All rights reserved.</p>
+                &copy; 2024 Buildables. All rights reserved.
             </div>
         </div>
     </body>
     </html>
     """
-    
     return html_content
 
 # ============================================================================
@@ -242,7 +214,7 @@ def fellowship_application():
         # Send email to applicant
         email_content = create_fellowship_email_content(data)
         email_sent = send_email(
-            subject="🎉 Your Buildables Fellowship Application Has Been Received!",
+            subject=f"Thank You for Applying to Buildables, {data['firstName']}!",
             body=email_content,
             to_email=data['email']
         )
@@ -252,19 +224,20 @@ def fellowship_application():
         
         # Send notification email to admin (optional)
         admin_email = os.environ.get('ADMIN_EMAIL', app.config['MAIL_USERNAME'])
-        admin_content = f"""
-        <h3>New Fellowship Application</h3>
-        <p><strong>Name:</strong> {data['firstName']} {data['lastName']}</p>
-        <p><strong>Email:</strong> {data['email']}</p>
-        <p><strong>Track:</strong> {TRACK_MAPPING.get(data['fellowshipTrack'], 'Not specified')}</p>
-        <p><strong>Applied at:</strong> {data['timestamp']}</p>
-        """
-        
-        send_email(
-            subject=f"New Fellowship Application - {data['firstName']} {data['lastName']}",
-            body=admin_content,
-            to_email=admin_email
-        )
+        if admin_email:
+            admin_content = f"""
+            <h3>New Fellowship Application</h3>
+            <p><strong>Name:</strong> {data['firstName']} {data['lastName']}</p>
+            <p><strong>Email:</strong> {data['email']}</p>
+            <p><strong>Track:</strong> {TRACK_MAPPING.get(data['fellowshipTrack'], 'Not specified')}</p>
+            <p><strong>Applied at:</strong> {data['timestamp']}</p>
+            """
+            
+            send_email(
+                subject=f"New Fellowship Application - {data['firstName']} {data['lastName']}",
+                body=admin_content,
+                to_email=admin_email
+            )
         
         return jsonify({
             'success': True,
