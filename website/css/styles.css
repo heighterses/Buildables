@@ -10,6 +10,13 @@
     --border-radius: 8px;
     --box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
     --transition: all 0.3s ease;
+
+    /* Gradient Presets */
+    --gradient-1: linear-gradient(120deg, #4e73df 0%, #1cc88a 100%);
+    --gradient-2: linear-gradient(120deg, #6610f2 0%, #e83e8c 100%);
+    --gradient-3: linear-gradient(120deg, #fd7e14 0%, #f6c23e 100%);
+    --gradient-4: linear-gradient(120deg, #17a2b8 0%, #20c997 100%);
+    --gradient-5: linear-gradient(120deg, #343a40 0%, #6c757d 100%);
 }
 
 * {
@@ -1891,6 +1898,10 @@ footer {
     margin-bottom: 0.5rem;
 }
 
+.footer-contact li i {
+    margin-right: 10px;
+}
+
 .footer-bottom {
     text-align: center;
     padding-top: 2rem;
@@ -2067,4 +2078,173 @@ footer {
     background: linear-gradient(90deg, var(--secondary-color) 60%, var(--primary-color) 100%);
     transform: translateY(-2px) scale(1.03);
     color: #fff;
+}
+
+/* Gradient Hero Section */
+.gradient-hero {
+    color: white;
+    padding: 80px 0 60px;
+    text-align: center;
+}
+
+.gradient-hero h2 {
+    font-size: 2.8rem;
+    font-weight: 700;
+    margin-bottom: 18px;
+    letter-spacing: 1px;
+    color: white;
+}
+
+.gradient-hero p {
+    font-size: 1.3rem;
+    max-width: 600px;
+    margin: 0 auto;
+    opacity: 0.95;
+    color: white;
+}
+
+.gradient-hero.fellowship-hero { background: var(--gradient-1); }
+.gradient-hero.hackathon-hero { background: var(--gradient-2); }
+.gradient-hero.events-hero { background: var(--gradient-3); }
+.gradient-hero.about-hero { background: var(--gradient-4); }
+.gradient-hero.community-hero { background: var(--gradient-1); }
+
+/* Slide Animation for main hero */
+.slide {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    transition: opacity 0.5s ease;
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    align-items: center;
+}
+
+.slide.active {
+    opacity: 1;
+}
+
+.slide:nth-child(1) {
+    background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('../images/hero-1.jpg');
+}
+
+.dot.active {
+    background-color: var(--primary-color);
+}
+
+.member-image img {
+    border-radius: 50%;
+    transition: var(--transition);
+}
+
+.team-member:hover .member-image img {
+    transform: scale(1.05);
+}
+
+.team-member h4 {
+    margin-bottom: 5px;
+}
+
+.location-map {
+    flex: 1;
+    min-width: 300px;
+}
+
+.map-placeholder {
+    width: 100%;
+    height: 100%;
+    min-height: 300px;
+    background-color: #e9ecef;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: var(--border-radius);
+    color: var(--gray-color);
+}
+
+@media (max-width: 992px) {
+    .location-content {
+        flex-direction: column;
+    }
+}
+
+@media (max-width: 768px) {
+    .story-stats {
+        flex-direction: column;
+    }
+    .stat-item {
+        margin-bottom: 20px;
+    }
+    .stat-number {
+        font-size: 2rem;
+    }
+    .team-member {
+        flex-basis: calc(50% - 20px);
+    }
+}
+
+/* Contact Page */
+.contact-hero {
+    background: #f8f9fc;
+    padding: 60px 0;
+    border-bottom: 1px solid #e3e6f0;
+}
+
+.info-card i {
+    font-size: 2rem;
+    color: var(--primary-color);
+    margin-bottom: 15px;
+}
+
+.info-card h3 {
+    font-size: 1.3rem;
+    margin-bottom: 15px;
+    color: var(--dark-color);
+}
+
+.faq-item p {
+    color: var(--gray-color);
+}
+
+.cta {
+    padding: 60px 0;
+    text-align: center;
+    background-color: var(--light-color);
+}
+
+.cta h2 {
+    font-size: 2rem;
+    margin-bottom: 20px;
+}
+
+.footer-contact li {
+    margin-bottom: 10px;
+    display: flex;
+    align-items: center;
+}
+
+.footer-contact li i {
+    margin-right: 10px;
+}
+
+.footer-bottom {
+    text-align: center;
+    padding-top: 2rem;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+@media (max-width: 640px) {
+    .steps-container {
+        flex-direction: column;
+    }
+}
+
+/* Reusable Component Classes */
+.nav-menu {
+    display: flex;
+    align-items: center;
 }
