@@ -68,8 +68,8 @@ Welcome to the official repository for the Buildables community website! This pr
     # Email Configuration (Gmail)
     MAIL_SERVER=smtp.gmail.com
     MAIL_PORT=587
-    MAIL_USERNAME=your-email@gmail.com
-    MAIL_PASSWORD=your-app-password
+    MAIL_USERNAME=Example@gmail.com
+    MAIL_PASSWORD=xxx-xxxx-xxx
 
     # Admin Email for notifications
     ADMIN_EMAIL=admin@buildables.pk

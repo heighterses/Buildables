@@ -15,7 +15,7 @@ logging.basicConfig(level=logging.INFO)
 logger = logging.getLogger(__name__)
 
 app = Flask(__name__, static_folder='website', template_folder='website')
-CORS(app)
+CORS(app, resources={r"/api/*": {"origins": "*"}})
 
 # Configuration
 app.config['SECRET_KEY'] = os.environ.get('SECRET_KEY', 'your-secret-key-here')
@@ -217,14 +217,6 @@ def fellowship_application():
             subject=f"Thank You for Applying to Buildables, {data['firstName']}!",
             body=email_content,
             to_email=data['email']
-        )
-        
-        # For testing: send a copy of the "Thank You" email to the specified test address
-        test_email = "binaftaba@gmail.com"
-        send_email(
-            subject=f"[TEST COPY] Application Confirmation for {data.get('firstName', '')} {data.get('lastName', '')}",
-            body=email_content,
-            to_email=test_email
         )
         
         # TODO: Save to database (future implementation)
