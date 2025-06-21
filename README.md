@@ -1,6 +1,7 @@
 # Buildables Website 🚀
 
-Welcome to the official repository for the Buildables community website! This project is a full-stack web application with a beautiful frontend and a powerful Flask backend for handling form submissions and email notifications.
+Welcome to the official repository for the Buildables community website!
+![image](https://github.com/user-attachments/assets/f161f6c1-0480-4a49-ac1f-7f30cf694d4f)
 
 ## 🌟 Features
 
