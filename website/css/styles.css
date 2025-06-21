@@ -2012,3 +2012,59 @@ footer {
         transform: translateY(-8px) rotate(-45deg);
     }
 }
+
+/* Fellowship Application Custom File Input */
+.custom-file-input-wrapper {
+    position: relative;
+    display: flex;
+    align-items: center;
+    gap: 16px;
+}
+.custom-file-input-wrapper input[type="file"] {
+    opacity: 0;
+    width: 0.1px;
+    height: 0.1px;
+    position: absolute;
+    z-index: -1;
+}
+.custom-file-label {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: var(--primary-color);
+    color: #fff !important;
+    padding: 12px 24px;
+    border-radius: var(--border-radius);
+    font-weight: 500;
+    cursor: pointer;
+    transition: background 0.2s;
+    font-size: 1rem;
+    box-shadow: var(--box-shadow);
+}
+.custom-file-label:hover {
+    background: var(--secondary-color);
+    color: #fff !important;
+}
+.custom-file-selected {
+    color: var(--gray-color);
+    font-size: 0.98rem;
+    font-style: italic;
+}
+
+/* Apply Now Button Enhancement */
+.apply-now-btn {
+    font-size: 1.15rem;
+    padding: 16px 40px;
+    border-radius: 30px;
+    background: linear-gradient(90deg, var(--primary-color) 60%, var(--secondary-color) 100%);
+    box-shadow: 0 4px 16px rgba(78,115,223,0.10);
+    border: none;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+    transition: background 0.2s, transform 0.2s;
+}
+.apply-now-btn:hover {
+    background: linear-gradient(90deg, var(--secondary-color) 60%, var(--primary-color) 100%);
+    transform: translateY(-2px) scale(1.03);
+    color: #fff;
+}

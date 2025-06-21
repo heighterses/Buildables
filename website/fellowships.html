@@ -159,7 +159,11 @@
                     </div>
                     <div class="form-group full-width">
                         <label for="resume">Upload Resume/CV *</label>
-                        <input type="file" id="resume" name="resume" accept=".pdf,.doc,.docx" required>
+                        <div class="custom-file-input-wrapper">
+                            <input type="file" id="resume" name="resume" accept=".pdf,.doc,.docx" required>
+                            <label for="resume" class="custom-file-label"><i class="fas fa-upload"></i> Choose File</label>
+                            <span class="custom-file-selected">No file chosen</span>
+                        </div>
                     </div>
                     <div class="form-group full-width">
                         <label for="whyJoin">Why do you want to join Buildables? *</label>
@@ -194,7 +198,7 @@
                     </div>
                 </div>
                 <div class="form-footer">
-                    <button type="submit" class="btn btn-primary">Submit Application</button>
+                    <button type="submit" class="btn btn-primary apply-now-btn">Apply Now</button>
                 </div>
             </form>
         </div>

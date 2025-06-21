@@ -312,4 +312,18 @@ document.addEventListener('DOMContentLoaded', function() {
             });
         });
     });
+
+    // Fellowship Application Custom File Input Handler
+    const fileInput = document.getElementById('resume');
+    const fileLabel = document.querySelector('.custom-file-label');
+    const fileSelected = document.querySelector('.custom-file-selected');
+    if (fileInput && fileLabel && fileSelected) {
+        fileInput.addEventListener('change', function() {
+            if (this.files && this.files.length > 0) {
+                fileSelected.textContent = this.files[0].name;
+            } else {
+                fileSelected.textContent = 'No file chosen';
+            }
+        });
+    }
 });
