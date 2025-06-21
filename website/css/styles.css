@@ -89,38 +89,57 @@ img {
 
 .btn {
     display: inline-block;
-    padding: 12px 25px;
-    border-radius: var(--border-radius);
+    padding: 14px 32px;
+    border-radius: 50px;
     font-weight: 500;
     cursor: pointer;
-    transition: var(--transition);
+    transition: all 0.4s ease-out;
     text-align: center;
+    border: 2px solid transparent;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    font-size: 0.9rem;
+    position: relative;
+    overflow: hidden;
+}
+
+.btn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
 }
 
 .btn-primary {
-    background-color: var(--primary-color);
+    background-image: linear-gradient(to right, var(--primary-color) 0%, var(--secondary-color) 50%, var(--primary-color) 100%);
+    background-size: 200% auto;
     color: white;
+    border: none;
+    padding: 16px 34px;
 }
 
 .btn-primary:hover {
-    background-color: #3a5ecc;
+    background-position: right center;
     color: white;
+    box-shadow: 0 8px 25px rgba(78, 115, 223, 0.3);
 }
 
 .btn-secondary {
-    background-color: var(--secondary-color);
-    color: white;
+    background-color: transparent;
+    border-color: rgba(255, 255, 255, 0.4);
+    color: rgba(255, 255, 255, 0.9);
+    box-shadow: none;
 }
 
 .btn-secondary:hover {
-    background-color: #16a978;
-    color: white;
+    background-color: white;
+    border-color: white;
+    color: var(--dark-color);
 }
 
 .btn-outline {
     background-color: transparent;
     border: 2px solid var(--primary-color);
     color: var(--primary-color);
+    box-shadow: none;
 }
 
 .btn-outline:hover {
@@ -626,8 +645,8 @@ header .container {
 /* Footer */
 footer {
     background-color: var(--dark-color);
-    color: white;
-    padding: 60px 0 20px;
+    color: rgba(255, 255, 255, 0.8);
+    padding: 60px 0 60px;
 }
 
 .footer-grid {
@@ -755,6 +774,240 @@ footer {
     
     .hero-content h2 {
         font-size: 2.5rem;
+    }
+}
+
+/* Gradient Hero Styles */
+.gradient-hero {
+    background-size: cover;
+    background-position: center;
+    padding: 100px 0;
+    color: white;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+}
+
+.gradient-hero h1 {
+    font-size: 3rem;
+    margin-bottom: 20px;
+    animation: fadeInUp 1s ease;
+}
+
+.gradient-hero p {
+    font-size: 1.2rem;
+    margin-bottom: 30px;
+    animation: fadeInUp 1s ease 0.2s;
+    animation-fill-mode: both;
+}
+
+.gradient-hero .btn {
+    animation: fadeInUp 1s ease 0.4s;
+    animation-fill-mode: both;
+}
+
+.gradient-hero::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: var(--gradient-1);
+    opacity: 0.8;
+    z-index: -1;
+}
+
+/* Gradient Variations */
+.gradient-hero.gradient-2::before {
+    background-image: var(--gradient-2);
+}
+
+.gradient-hero.gradient-3::before {
+    background-image: var(--gradient-3);
+}
+
+.gradient-hero.gradient-4::before {
+    background-image: var(--gradient-4);
+}
+
+.gradient-hero.gradient-5::before {
+    background-image: var(--gradient-5);
+}
+
+/* Index.html Hero with Slider */
+.gradient-hero.hero {
+    padding: 0;
+    text-align: center;
+    overflow: hidden;
+    margin-bottom: 4rem; /* Adds whitespace below for better UX */
+}
+
+.gradient-hero.hero .slider-container {
+    position: relative;
+}
+
+.gradient-hero.hero .slide {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    transition: opacity 0.5s ease;
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.gradient-hero.hero .slide.active {
+    opacity: 1;
+}
+
+.gradient-hero.hero .slide:nth-child(1) {
+    background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('../images/hero-1.jpg');
+}
+
+.gradient-hero.hero .hero-content {
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.gradient-hero.hero .hero-content h2 {
+    font-size: 3.5rem;
+    font-weight: 700;
+    margin-bottom: 20px;
+    letter-spacing: 1px;
+    color: white;
+}
+
+.gradient-hero.hero .hero-content p {
+    font-size: 1.4rem;
+    max-width: 600px;
+    margin: 0 auto 30px auto;
+    opacity: 0.95;
+    color: white;
+    line-height: 1.6;
+}
+
+.gradient-hero.hero .hero-buttons {
+    display: flex;
+    gap: 15px;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.gradient-hero.hero .hero-buttons .btn {
+    margin: 5px;
+}
+
+.gradient-hero.hero .slider-controls {
+    position: absolute;
+    bottom: 30px;
+    left: 0;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+}
+
+.gradient-hero.hero .prev-slide,
+.gradient-hero.hero .next-slide {
+    background-color: rgba(255, 255, 255, 0.3);
+    border: none;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    color: white;
+    transition: var(--transition);
+}
+
+.gradient-hero.hero .prev-slide:hover,
+.gradient-hero.hero .next-slide:hover {
+    background-color: rgba(255, 255, 255, 0.5);
+}
+
+.gradient-hero.hero .slider-dots {
+    display: flex;
+    gap: 10px;
+}
+
+.gradient-hero.hero .dot {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background-color: rgba(255, 255, 255, 0.5);
+    cursor: pointer;
+    transition: var(--transition);
+}
+
+.gradient-hero.hero .dot.active {
+    background-color: white;
+}
+
+/* Scroll to Top Button */
+.scroll-to-top {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background-color: var(--primary-color);
+    color: white;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.5rem;
+    cursor: pointer;
+    opacity: 0;
+    visibility: hidden;
+    transition: var(--transition);
+    z-index: 100;
+}
+
+.scroll-to-top:hover {
+    background-color: #3a5ecc;
+}
+
+.scroll-to-top.show {
+    opacity: 1;
+    visibility: visible;
+}
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+    .gradient-hero h1 {
+        font-size: 2rem;
+    }
+
+    .gradient-hero p {
+        font-size: 1rem;
+    }
+
+    .gradient-hero .btn {
+        padding: 10px 20px;
+        font-size: 0.9rem;
+    }
+
+    .gradient-hero.hero .hero-content h2 {
+        font-size: 2.5rem;
+    }
+
+    .gradient-hero.hero .hero-content p {
+        font-size: 1.2rem;
+    }
+
+    .gradient-hero.hero .hero-buttons {
+        flex-direction: column;
+        gap: 10px;
     }
 }
 
@@ -1839,9 +2092,9 @@ body {
 
 /* Footer */
 footer {
-    background-color: var(--text-color);
-    color: white;
-    padding: 60px 0 20px;
+    background-color: var(--dark-color);
+    color: rgba(255, 255, 255, 0.8);
+    padding: 60px 0 60px;
 }
 
 .footer-grid {
@@ -1932,15 +2185,7 @@ footer {
 
 @media (max-width: 640px) {
     .steps-container {
-        grid-template-columns: 1fr;
-    }
-    
-    .nav-menu {
-        display: none;
-    }
-    
-    .hamburger {
-        display: block;
+        flex-direction: column;
     }
 }
 
@@ -2150,6 +2395,26 @@ footer {
 .gradient-hero.hackathon-hero p {
     margin: 20px 0 30px 0;
     max-width: 500px;
+}
+
+/* Index.html Hero Section - Centered Design */
+.gradient-hero.hero .hero-content {
+    text-align: center;
+}
+
+.gradient-hero.hero .hero-content h2 {
+    font-size: 3.5rem;
+    font-weight: 700;
+    line-height: 1.2;
+}
+
+.gradient-hero.hero .hero-content p {
+    margin: 20px auto 30px auto;
+    max-width: 600px;
+}
+
+.gradient-hero.hero .hero-buttons {
+    justify-content: center;
 }
 
 /* Index.html Hero with Slider */
@@ -2399,4 +2664,30 @@ footer {
 .nav-menu {
     display: flex;
     align-items: center;
+}
+
+/* Scroll to Top Button */
+#scrollTopBtn {
+    display: none;
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    z-index: 99;
+    border: none;
+    outline: none;
+    background-color: var(--primary-color);
+    color: white;
+    cursor: pointer;
+    padding: 15px;
+    border-radius: 50%;
+    font-size: 18px;
+    width: 50px;
+    height: 50px;
+    line-height: 1;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+    transition: background-color 0.3s, opacity 0.3s, visibility 0.3s;
+}
+
+#scrollTopBtn:hover {
+    background-color: var(--secondary-color);
 }
