@@ -1,10 +1,10 @@
 document.addEventListener('DOMContentLoaded', function() {
-    // Mobile Navigation Toggle
+    // Hamburger menu toggle
     const hamburger = document.querySelector('.hamburger');
     const navMenu = document.querySelector('.nav-menu');
     
     if (hamburger) {
-        hamburger.addEventListener('click', () => {
+        hamburger.addEventListener('click', function() {
             hamburger.classList.toggle('active');
             navMenu.classList.toggle('active');
         });
@@ -38,63 +38,6 @@ document.addEventListener('DOMContentLoaded', function() {
     document.addEventListener('click', () => {
         dropdowns.forEach(dropdown => dropdown.classList.remove('active'));
     });
-    
-    // Hero Slider
-    const slides = document.querySelectorAll('.hero-slider .slide');
-    const dots = document.querySelectorAll('.slider-dots .dot');
-    const prevBtn = document.querySelector('.prev-slide');
-    const nextBtn = document.querySelector('.next-slide');
-    let currentSlide = 0;
-    
-    function showSlide(index) {
-        slides.forEach(slide => slide.classList.remove('active'));
-        dots.forEach(dot => dot.classList.remove('active'));
-        
-        slides[index].classList.add('active');
-        dots[index].classList.add('active');
-        currentSlide = index;
-    }
-    
-    if (prevBtn && nextBtn) {
-        prevBtn.addEventListener('click', function() {
-            currentSlide = (currentSlide - 1 + slides.length) % slides.length;
-            showSlide(currentSlide);
-        });
-        
-        nextBtn.addEventListener('click', function() {
-            currentSlide = (currentSlide + 1) % slides.length;
-            showSlide(currentSlide);
-        });
-    }
-    
-    if (dots.length > 0) {
-        dots.forEach((dot, index) => {
-            dot.addEventListener('click', function() {
-                showSlide(index);
-            });
-        });
-    }
-    
-    // Auto slide for hero slider
-    let slideInterval = setInterval(function() {
-        currentSlide = (currentSlide + 1) % slides.length;
-        showSlide(currentSlide);
-    }, 5000);
-    
-    // Pause auto slide on hover
-    const heroSlider = document.querySelector('.hero-slider');
-    if (heroSlider) {
-        heroSlider.addEventListener('mouseenter', function() {
-            clearInterval(slideInterval);
-        });
-        
-        heroSlider.addEventListener('mouseleave', function() {
-            slideInterval = setInterval(function() {
-                currentSlide = (currentSlide + 1) % slides.length;
-                showSlide(currentSlide);
-            }, 5000);
-        });
-    }
     
     // Testimonials Slider
     const testimonials = document.querySelectorAll('.testimonial');
@@ -327,3 +270,23 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
 });
+
+// Scroll to Top Button
+const scrollTopBtn = document.getElementById('scrollTopBtn');
+
+if (scrollTopBtn) {
+    window.onscroll = function() {
+        if (document.body.scrollTop > 100 || document.documentElement.scrollTop > 100) {
+            scrollTopBtn.style.display = "block";
+        } else {
+            scrollTopBtn.style.display = "none";
+        }
+    };
+
+    scrollTopBtn.addEventListener('click', function() {
+        window.scrollTo({
+            top: 0,
+            behavior: 'smooth'
+        });
+    });
+}
