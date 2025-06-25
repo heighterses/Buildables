@@ -154,4 +154,56 @@ Don't forget to give the project a star! Thanks again! ⭐
 
 ## 📝 License
 
-This project is licensed under the MIT License - see the LICENSE file for details. 
+This project is licensed under the MIT License - see the LICENSE file for details.
+
+# Buildables Flask Azure Integration Boilerplate
+
+## Features
+
+- **Azure SQL Database**: Placeholder for connection and data insertion.
+- **Azure Blob Storage**: Placeholder for file upload and SAS token generation.
+- **Form Submission**: Accepts text (1000-1500 chars) and resume upload (PDF/Word).
+- **Configurable**: All credentials in `config.py` for easy management.
+
+## Setup
+
+1. **Clone the repository**
+
+2. **Install dependencies**
+   ```bash
+   pip install flask werkzeug
+   # For Azure integration (when ready):
+   # pip install pyodbc azure-storage-blob
+   ```
+
+3. **Add your Azure credentials**
+   - Create a `config.py` file in the project root and fill in your Azure SQL and Blob Storage details:
+
+   ```python
+   # config.py
+   AZURE_SQL_SERVER = 'your-sql-server.database.windows.net'
+   AZURE_SQL_DATABASE = 'your-database'
+   AZURE_SQL_USERNAME = 'your-username'
+   AZURE_SQL_PASSWORD = 'your-password'
+   AZURE_BLOB_ACCOUNT_NAME = 'your-storage-account'
+   AZURE_BLOB_CONTAINER_NAME = 'your-container'
+   AZURE_BLOB_KEY = 'your-storage-key'
+   ```
+
+4. **Run the app**
+   ```bash
+   python app.py
+   ```
+
+5. **Test the form**
+   - Visit [http://localhost:5000](http://localhost:5000) and submit the form.
+
+## Next Steps
+
+- Uncomment and complete the Azure SQL and Blob Storage logic in `app.py` when credentials are ready.
+- Implement SAS token generation for secure file access.
+- Replace the placeholder HTML form in `index.html` with your production form as needed.
+
+---
+
+**This boilerplate is ready for your Azure credentials and logic.**

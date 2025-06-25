@@ -10,6 +10,8 @@ import json
 from datetime import datetime
 import logging
 from dotenv import load_dotenv
+from werkzeug.utils import secure_filename
+
 load_dotenv()
 
 
@@ -27,6 +29,9 @@ app.config['MAIL_PORT'] = int(os.environ.get('MAIL_PORT', 587))
 app.config['MAIL_USE_TLS'] = True
 app.config['MAIL_USERNAME'] = os.environ.get('MAIL_USERNAME', 'your-email@gmail.com')
 app.config['MAIL_PASSWORD'] = os.environ.get('MAIL_PASSWORD', 'your-app-password')
+
+app.config['UPLOAD_FOLDER'] = 'uploads'  # Local temp folder for uploads
+os.makedirs(app.config['UPLOAD_FOLDER'], exist_ok=True)
 
 # Track mapping for better email formatting
 TRACK_MAPPING = {
@@ -185,6 +190,55 @@ db_manager = DatabaseManager()
 # ROUTES
 # ============================================================================
 
+@app.route('/apply', methods=['POST'])
+def apply():
+    """
+    Accepts form data and a resume upload.
+    Saves text data to Azure SQL and uploads resume to Blob Storage.
+    Stores resume URL in SQL with form data.
+    """
+    try:
+        # Get text fields (assuming multipart/form-data)
+        text_data = request.form.get('text_data')
+        if not text_data or not (1000 <= len(text_data) <= 1500):
+            return jsonify({'error': 'Text data must be 1000-1500 characters.'}), 400
+
+        # Get file
+        if 'resume' not in request.files:
+            return jsonify({'error': 'Resume file is required.'}), 400
+        resume = request.files['resume']
+        if resume.filename == '':
+            return jsonify({'error': 'No selected file.'}), 400
+
+        # Save file locally (temp)
+        filename = secure_filename(resume.filename)
+        local_path = os.path.join(app.config['UPLOAD_FOLDER'], filename)
+        resume.save(local_path)
+
+        # Upload to Azure Blob Storage (placeholder)
+        # resume_url = upload_resume_to_blob(local_path, filename)
+        # Use placeholder values if config is not set
+        blob_account = globals().get('AZURE_BLOB_ACCOUNT_NAME', 'your-storage-account')
+        blob_container = globals().get('AZURE_BLOB_CONTAINER_NAME', 'your-container')
+        resume_url = f"https://{blob_account}.blob.core.windows.net/{blob_container}/{filename}"  # Placeholder
+
+        # Save form data + resume_url to Azure SQL (placeholder)
+        # conn = get_sql_connection()
+        # cursor = conn.cursor()
+        # cursor.execute("INSERT INTO applications (text_data, resume_url, submitted_at) VALUES (?, ?, ?)",
+        #                (text_data, resume_url, datetime.utcnow()))
+        # conn.commit()
+        # cursor.close()
+        # conn.close()
+
+        # Clean up local file
+        os.remove(local_path)
+
+        return jsonify({'success': True, 'resume_url': resume_url}), 200
+
+    except Exception as e:
+        return jsonify({'error': str(e)}), 500
+
 @app.route('/')
 def index():
     """Serve the main index page"""
@@ -310,5 +364,69 @@ def health_check():
         'version': '1.0.0'
     })
 
+# =========================
+# Azure SQL Connection Setup
+# =========================
+def get_sql_connection():
+    """
+    Returns a connection to Azure SQL Database.
+    Fill in the connection string with your credentials.
+    """
+    # Example using pyodbc (uncomment when ready)
+    # conn_str = (
+    #     f"DRIVER={{ODBC Driver 17 for SQL Server}};"
+    #     f"SERVER={AZURE_SQL_SERVER};"
+    #     f"DATABASE={AZURE_SQL_DATABASE};"
+    #     f"UID={AZURE_SQL_USERNAME};"
+    #     f"PWD={AZURE_SQL_PASSWORD}"
+    # )
+    # return pyodbc.connect(conn_str)
+    pass  # Placeholder
+
+# =========================
+# Azure Blob Storage Setup
+# =========================
+def get_blob_service_client():
+    """
+    Returns a BlobServiceClient for Azure Blob Storage.
+    """
+    # Example (uncomment when ready)
+    # connect_str = f"DefaultEndpointsProtocol=https;AccountName={AZURE_BLOB_ACCOUNT_NAME};AccountKey={AZURE_BLOB_KEY};EndpointSuffix=core.windows.net"
+    # return BlobServiceClient.from_connection_string(connect_str)
+    pass  # Placeholder
+
+def upload_resume_to_blob(file_path, filename):
+    """
+    Uploads the resume to Azure Blob Storage and returns the blob URL.
+    """
+    # Example (uncomment when ready)
+    # blob_service_client = get_blob_service_client()
+    # blob_client = blob_service_client.get_blob_client(container=AZURE_BLOB_CONTAINER_NAME, blob=filename)
+    # with open(file_path, "rb") as data:
+    #     blob_client.upload_blob(data)
+    # # Generate SAS token for secure access (see below)
+    # resume_url = f"https://{AZURE_BLOB_ACCOUNT_NAME}.blob.core.windows.net/{AZURE_BLOB_CONTAINER_NAME}/{filename}"
+    # return resume_url
+    pass  # Placeholder
+
+# =========================
+# SAS Token Generation
+# =========================
+def generate_sas_token(blob_name):
+    """
+    Generates a SAS token for the given blob.
+    """
+    # Example (uncomment when ready)
+    # sas_token = generate_blob_sas(
+    #     account_name=AZURE_BLOB_ACCOUNT_NAME,
+    #     container_name=AZURE_BLOB_CONTAINER_NAME,
+    #     blob_name=blob_name,
+    #     account_key=AZURE_BLOB_KEY,
+    #     permission=BlobSasPermissions(read=True),
+    #     expiry=datetime.utcnow() + timedelta(hours=1)
+    # )
+    # return sas_token
+    pass  # Placeholder
+
 if __name__ == '__main__':
-    app.run(debug=True, host='0.0.0.0', port=5000) 
+    app.run(debug=True, host='0.0.0.0', port=5000)
