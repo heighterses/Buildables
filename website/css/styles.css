@@ -676,12 +676,12 @@ footer {
   color: rgba(255, 255, 255, 0.7);
 }
 
-.social-links {
+.footer-about .social-links {
   display: flex;
   gap: 15px;
 }
 
-.social-links a {
+.footer-about .social-links a {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -693,7 +693,7 @@ footer {
   transition: var(--transition);
 }
 
-.social-links a:hover {
+.footer-about .social-links a:hover {
   background-color: var(--primary-color);
   transform: translateY(-3px);
 }
@@ -1587,9 +1587,14 @@ footer {
   margin-top: 15px;
 }
 
+.info-card .social-links i {
+  color: inherit;
+  margin: 0;
+}
+
 .info-card .social-links a {
-  width: 40px;
-  height: 40px;
+  width: 45px;
+  height: 45px;
   background-color: white;
   border-radius: 50%;
   display: flex;
@@ -1597,6 +1602,7 @@ footer {
   justify-content: center;
   color: var(--primary-color);
   transition: var(--transition);
+  margin-right: 0;
 }
 
 .info-card .social-links a:hover {
