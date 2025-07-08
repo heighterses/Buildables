@@ -12,9 +12,14 @@ import logging
 from dotenv import load_dotenv
 from werkzeug.utils import secure_filename
 
+
+#Testing if the environment variables are loaded correctly
+
 load_dotenv()
 
 
+# Check if environment variables are loadedif not all([os.getenv('MAIL_USERNAME'), os.getenv('MAIL_PASSWORD')]):
+    raise EnvironmentError("Environment variables for email configuration are not set. Please check your .env file.")
 # Configure logging
 logging.basicConfig(level=logging.INFO)
 logger = logging.getLogger(__name__)
